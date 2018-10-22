@@ -5,16 +5,16 @@ NC='\033[0m' # No Color
 
 echo -e "${GREEN}Starting Style Formatting Configuration... ${NC}"
 
-echo -e "1/4 ${LCYAN}Local ESLint & Prettier Installation... ${NC}"
-yarn add -D eslint prettier
+echo -e "1/5 ${LCYAN}Local ESLint & Prettier Installation... ${NC}"
+npm install -D eslint prettier
 
-echo -e "2/4 ${YELLOW}Airbnb Configuration Installation... ${NC}"
+echo -e "2/5 ${YELLOW}Airbnb Configuration Installation... ${NC}"
 npx install-peerdeps --dev eslint-config-airbnb
 
-echo -e "3/4 ${LCYAN}Disabling ESLint Formatting... ${NC}"
-yarn add -D eslint-config-prettier eslint-plugin-prettier
+echo -e "3/5 ${LCYAN}Disabling ESLint Formatting... ${NC}"
+npm install -D eslint-config-prettier eslint-plugin-prettier
 
-echo -e "4/4 ${YELLOW}Creating ESLint JSON... ${NC}"
+echo -e "4/5 ${YELLOW}Creating ESLint JSON... ${NC}"
 touch .eslintrc.json
 
 echo '{
@@ -26,6 +26,14 @@ echo '{
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 }' >> .eslintrc.json
+
+echo -e "5/5 ${YELLOW}Creating Custom Prettier Config... ${NC}"
+touch .prettierrc
+
+echo '{
+  "printWidth": 100,
+  "singleQuote": true
+}' >> .prettierrc
 
 echo -e "${GREEN}Done! ${NC}"
 
