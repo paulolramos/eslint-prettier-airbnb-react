@@ -1,6 +1,6 @@
 # ESLint-Prettier-Airbnb-CRA
 
-**Make sure you have a run `npm init`, or at least have a `package.json` file before proceeding!**
+**Make sure you `npm init`, or at least have a `package.json` file before proceeding!**
 
 ## Installation
 
