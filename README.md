@@ -9,7 +9,7 @@
 
 ```
 cd
-git clone https://github.com/paulolramos/eslint-prettier-config style-config
+git clone https://github.com/paulolramos/eslint-prettier-airbnb-react style-config
 ```
 
 2. Navigate to your app directory where you want to include this style configuration.
