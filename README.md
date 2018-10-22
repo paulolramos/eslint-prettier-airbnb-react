@@ -1,4 +1,4 @@
-# ESLint/Prettier Configuration using Airbnb's Style Guide for React/Create React Apps
+# ESLint/Prettier & Airbnb's Style Guide for React Apps
 
 **Make sure you `npm init`, or at least have a _package.json_ file before proceeding!**
 
