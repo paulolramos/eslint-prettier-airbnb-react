@@ -3,6 +3,7 @@
 **Make sure you `npm init`, or at least have a _package.json_ file before proceeding!**
 
 ## Installation
+##### You will need _npm/npx_ installed. It will work on Windows, but just needs to be run in a bash shell, like VS Code's integrated terminal. 
 
 1. Clone this repo somewhere on your machine, preferably in your home directory (~/), and _NOT_ in your app's directory.
 
