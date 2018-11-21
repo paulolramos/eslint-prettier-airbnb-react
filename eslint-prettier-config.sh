@@ -12,7 +12,7 @@ echo -e "2/5 ${YELLOW}Airbnb Configuration Installation... ${NC}"
 npx install-peerdeps --dev eslint-config-airbnb
 
 echo -e "3/5 ${LCYAN}Disabling ESLint Formatting... ${NC}"
-npm install -D eslint-config-prettier eslint-plugin-prettier
+npm install -D eslint-config-prettier eslint-plugin-prettier eslint-config-react-app eslint-plugin-flowtype
 
 echo -e "4/5 ${YELLOW}Creating ESLint JSON... ${NC}"
 touch .eslintrc.json
