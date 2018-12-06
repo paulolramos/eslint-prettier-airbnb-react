@@ -1,3 +1,5 @@
+#!/bin/bash
+
 YELLOW='\033[1;33m'
 GREEN='\033[1;32m'
 LCYAN='\033[1;36m'
@@ -9,7 +11,7 @@ echo -e "1/5 ${LCYAN}Local ESLint & Prettier Installation... ${NC}"
 npm install -D eslint@5.6.0 prettier
 
 echo -e "2/5 ${YELLOW}Airbnb Configuration Installation... ${NC}"
-npm install -D eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react
+npm install -D eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react babel-eslint
 
 echo -e "3/5 ${LCYAN}Disabling ESLint Formatting... ${NC}"
 npm install -D eslint-config-prettier eslint-plugin-prettier eslint-plugin-flowtype@2.50.3 eslint-config-react-app
