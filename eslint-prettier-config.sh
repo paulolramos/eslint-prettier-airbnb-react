@@ -111,15 +111,25 @@ else
   > ".eslintrc${eslint_config_extension}" # truncates existing file (or creates empty)
 
   echo ${config_opening}'
-  "extends": ["airbnb", "prettier", "react-app", "plugin:prettier/recommended"],
-  "plugins": ["prettier"],
+  // https://prettier.io/docs/en/eslint.html#use-both (plugin directive not needed)
+  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "parser": "babel-eslint",
+  // env from the sharable react-app ESLint config
+  "env": {
+    browser: true,
+    commonjs: true,
+    es6: true,
+    jest: true,
+    node: true,
+  },
   "rules": {
-    "prettier/prettier": ["error"],
-    //https://github.com/evcohen/eslint-plugin-jsx-a11y/issues/397#issuecomment-393921950
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/issues/397#issuecomment-393921950
     "jsx-a11y/href-no-hash": [0],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md#rule-options
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    // https://eslint.org/docs/rules/max-len Override default, set to '${max_len_value}' with some addtl config opts
     "max-len": [
-      "error",
+      "warn",
       {
         "code": '${max_len_val}',
         "tabWidth": 2,
