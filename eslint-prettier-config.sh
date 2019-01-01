@@ -97,9 +97,9 @@ $pkg_cmd -D eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-import esl
 echo
 echo
 echo -e "3/5 ${LCYAN}Disabling ESLint Formatting... ${NC}"
-echo "See  for more details."
+echo "See https://github.com/prettier/eslint-config-prettier for more details."
 echo
-$pkg_cmd -D eslint-config-prettier eslint-plugin-prettier eslint-plugin-flowtype eslint-config-react-app
+$pkg_cmd -D eslint-config-prettier eslint-plugin-prettier eslint-plugin-flowtype
 
 
 if [ "$skip_eslint_setup" == "true" ]; then
