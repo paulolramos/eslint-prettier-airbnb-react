@@ -18,9 +18,9 @@ select package_command_choices in "Yarn" "npm" "Cancel"; do
 done
 echo
 
-echo "????? Which ESLint configuration format do you perfer?"
-select eslint_config_extension in ".js" ".json" "Cancel"; do
-  case $eslint_config_extension in
+echo "????? Which ESLint and Prettier configuration format do you perfer?"
+select config_extension in ".js" ".json" "Cancel"; do
+  case $config_extension in
     .js ) config_opening='module.exports = {'; break;;
     .json ) config_opening='{'; break;;
     Cancel ) exit;;
@@ -34,7 +34,7 @@ if [ -f ".eslintrc.js" -o -f ".eslintrc.yaml" -o -f ".eslintrc.yml" -o -f ".esli
   echo
   echo ">>>> CAUTION: there is loading priority when more than one config file is present: https://eslint.org/docs/user-guide/configuring#configuration-file-formats"
   echo
-  read -p  "????? Write .eslintrc${eslint_config_extension} (Y/n)? "
+  read -p  "????? Write .eslintrc${config_extension} (Y/n)? "
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo ">>>>> Skipping ESLint config"
     skip_eslint_setup="true"
@@ -107,8 +107,8 @@ if [ "$skip_eslint_setup" == "true" ]; then
 else
   echo
   echo
-  echo -e "4/5 ${YELLOW}Creating custom .eslintrc${eslint_config_extension} config...${GREEN}Done! ${NC}"
-  > ".eslintrc${eslint_config_extension}" # truncates existing file (or creates empty)
+  echo -e "4/5 ${YELLOW}Creating custom .eslintrc${config_extension} config...${GREEN}Done! ${NC}"
+  > ".eslintrc${config_extension}" # truncates existing file (or creates empty)
 
   echo ${config_opening}'
   // https://prettier.io/docs/en/eslint.html#use-both (plugin directive not needed)
@@ -144,7 +144,7 @@ else
       }
     ]
   }
-}' >> .eslintrc${eslint_config_extension}
+}' >> .eslintrc${config_extension}
 fi
 
 
@@ -154,11 +154,11 @@ else
   echo -e "5/5 ${YELLOW}Creating custom .prettierrc config...${GREEN}Done! ${NC}"
   > .prettierrc # truncates existing file (or creates empty)
 
-  echo '{
+  echo ${config_opening}'
   "printWidth": '${max_len_val}',
   "singleQuote": true,
-  "trailingComma": '${trailing_comma_pref}'
-}' >> .prettierrc
+  "trailingComma": "'${trailing_comma_pref}'"
+}' >> .prettierrc${config_extension}
 fi
 
 echo
