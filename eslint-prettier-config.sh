@@ -32,7 +32,7 @@ if [ -f ".eslintrc.js" -o -f ".eslintrc.yaml" -o -f ".eslintrc.yml" -o -f ".esli
   echo "!!!!! Existing ESLint config file(s) found:"
   ls -a .eslint* | xargs -n 1 basename
   echo
-  echo ">>>> CAUTION: there is loading priority when more than one config file is present: https://eslint.org/docs/user-guide/configuring#configuration-file-formats"
+  echo ">>>>> CAUTION: there is loading priority when more than one config file is present: https://eslint.org/docs/user-guide/configuring#configuration-file-formats"
   echo
   read -p  "????? Write .eslintrc${config_extension} (Y/n)? "
   if [[ $REPLY =~ ^[Nn]$ ]]; then
@@ -65,9 +65,13 @@ select trailing_comma_pref in "none" "es5" "all"; do
 done
 echo
 
-if [ -f ".prettierrc" ]; then
-  echo "!!!!! Existing .prettierrc config file found"
-  read -p "????? Overwrite existing Prettier config file (Y/n)? "
+if [ -f ".prettierrc.js" -o -f "prettier.config.js" -o -f ".prettierrc.yaml" -o -f ".prettierrc.yml" -o -f ".prettierrc.json" -o -f ".prettierrc.toml" -o -f ".prettierrc" ]; then
+  echo "!!!!! Existing Prettier config file(s) found"
+  ls -a | grep "prettier*" | xargs -n 1 basename
+  echo
+  echo ">>>>> CAUTION: The configuration file will be resolved starting from the location of the file being formatted, and searching up the file tree until a config file is (or isn't) found. https://prettier.io/docs/en/configuration.html"
+  echo
+  read -p  "????? Write .prettierrc${config_extension} (Y/n)? "
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo ">>>>> Skipping Prettier config"
     skip_prettier_setup="true"
@@ -124,7 +128,7 @@ else
   },
   "rules": {
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/issues/397#issuecomment-393921950
-    "jsx-a11y/href-no-hash": [0],
+    "jsx-a11y/href-no-hash": ["off"],
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md#rule-options
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     // https://eslint.org/docs/rules/max-len Override default, set to '${max_len_value}' with some addtl config opts
@@ -151,8 +155,8 @@ fi
 if [ "$skip_prettier_setup" == "true" ]; then
   break
 else
-  echo -e "5/5 ${YELLOW}Creating custom .prettierrc config...${GREEN}Done! ${NC}"
-  > .prettierrc # truncates existing file (or creates empty)
+  echo -e "5/5 ${YELLOW}Creating custom .prettierrc${config_extension} config...${GREEN}Done! ${NC}"
+  > .prettierrc${config_extension} # truncates existing file (or creates empty)
 
   echo ${config_opening}'
   "printWidth": '${max_len_val}',
