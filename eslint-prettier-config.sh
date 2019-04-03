@@ -110,7 +110,7 @@ echo
 echo -e "3/5 ${LCYAN}Making ESlint and Prettier play nice with each other... ${NC}"
 echo "See https://github.com/prettier/eslint-config-prettier for more details."
 echo
-$pkg_cmd -D eslint-config-prettier eslint-plugin-prettier eslint-plugin-flowtype
+$pkg_cmd -D eslint-config-prettier eslint-plugin-prettier
 
 
 if [ "$skip_eslint_setup" == "true" ]; then
