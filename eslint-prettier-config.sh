@@ -115,30 +115,27 @@ else
   > ".eslintrc${config_extension}" # truncates existing file (or creates empty)
 
   echo ${config_opening}'
-  // https://prettier.io/docs/en/eslint.html#use-both (plugin directive not needed)
-  "extends": ["airbnb", "plugin:prettier/recommended"],
-  "parser": "babel-eslint",
-  // env from the sharable react-app ESLint config
+  "extends": [
+    "airbnb",
+    "plugin:prettier/recommended",
+    "prettier/react"
+  ],
   "env": {
-    browser: true,
-    commonjs: true,
-    es6: true,
-    jest: true,
-    node: true,
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
   },
   "rules": {
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/issues/397#issuecomment-393921950
     "jsx-a11y/href-no-hash": ["off"],
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md#rule-options
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
-    // https://eslint.org/docs/rules/max-len Override default, set to '${max_len_value}' with some addtl config opts
     "max-len": [
       "warn",
       {
         "code": '${max_len_val}',
         "tabWidth": 2,
         "comments": '${max_len_val}',
-        "ignoreUrls": true,
         "ignoreComments": false,
         "ignoreTrailingComments": true,
         "ignoreUrls": true,
