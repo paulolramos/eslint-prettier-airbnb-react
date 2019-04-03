@@ -1,13 +1,19 @@
 #!/bin/bash
 
+# ----------------------
+# Color Variables
+# ----------------------
 RED="\033[0;31m"
 YELLOW='\033[1;33m'
 GREEN='\033[1;32m'
 LCYAN='\033[1;36m'
 NC='\033[0m' # No Color
 
+# --------------------------------------
 # Prompts for configuration preferences
-# -----------------------------
+# --------------------------------------
+
+# Package Manager Prompt
 echo
 echo "Which package manager are you using?"
 select package_command_choices in "Yarn" "npm" "Cancel"; do
@@ -19,6 +25,7 @@ select package_command_choices in "Yarn" "npm" "Cancel"; do
 done
 echo
 
+# File Format Prompt
 echo "Which ESLint and Prettier configuration format do you prefer?"
 select config_extension in ".js" ".json" "Cancel"; do
   case $config_extension in
@@ -29,6 +36,7 @@ select config_extension in ".js" ".json" "Cancel"; do
 done
 echo
 
+# Checks for existing eslintrc files
 if [ -f ".eslintrc.js" -o -f ".eslintrc.yaml" -o -f ".eslintrc.yml" -o -f ".eslintrc.json" -o -f ".eslintrc" ]; then
   echo -e "${RED}Existing ESLint config file(s) found:${NC}"
   ls -a .eslint* | xargs -n 1 basename
@@ -41,8 +49,9 @@ if [ -f ".eslintrc.js" -o -f ".eslintrc.yaml" -o -f ".eslintrc.yml" -o -f ".esli
     skip_eslint_setup="true"
   fi
 fi
-
 finished=false
+
+# Max Line Length Prompt
 while ! $finished; do
   read -p "What max line length do you want to set for ESLint and Prettier? (Recommendation: 80)"
   if [[ $REPLY =~ ^[0-9]{2,3}$ ]]; then
@@ -54,6 +63,7 @@ while ! $finished; do
   fi
 done
 
+# Trailing Commas Prompt
 echo "What style of trailing commas do you want to enforce with Prettier?"
 echo -e "${YELLOW}>>>>> See https://prettier.io/docs/en/options.html#trailing-commas for more details.${NC}"
 select trailing_comma_pref in "none" "es5" "all"; do
@@ -65,6 +75,7 @@ select trailing_comma_pref in "none" "es5" "all"; do
 done
 echo
 
+# Checks for existing prettierrc files
 if [ -f ".prettierrc.js" -o -f "prettier.config.js" -o -f ".prettierrc.yaml" -o -f ".prettierrc.yml" -o -f ".prettierrc.json" -o -f ".prettierrc.toml" -o -f ".prettierrc" ]; then
   echo -e "${RED}Existing Prettier config file(s) found${NC}"
   ls -a | grep "prettier*" | xargs -n 1 basename
