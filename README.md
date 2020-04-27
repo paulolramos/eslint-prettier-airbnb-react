@@ -95,7 +95,7 @@ Once files are created, you may edit to your liking.
 
 ```
 {
-"printWidth": (SET BY USER),
+  "printWidth": (SET BY USER),
   "singleQuote": true,
   "trailingComma": (SET BY USER)
 }
