@@ -9,7 +9,8 @@
 2. Run this command inside your app's root directory. Note: this command executes the `eslint-prettier-config.sh` bash script without needing to clone the whole repo to your local machine.
 
    ```bash
-   exec 3<&1;bash <&3 <(curl https://raw.githubusercontent.com/paulolramos/eslint-prettier-airbnb-react/master/eslint-prettier-config.sh 2> /dev/null)
+   exec 3<&1;bash <&3 <(curl https://raw.githubusercontent.com/asudbury/eslint-prettier-airbnb-react/master/eslint-prettier-config.sh 2> /dev/null)
+ 
    ```
 
 3. Make selections for your preference of package manager (npm or yarn), file format (.js or .json), max-line size, and trailing commas (none, es5, all).
