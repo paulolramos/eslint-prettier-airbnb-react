@@ -49,6 +49,9 @@ npm install -D eslint-config-prettier eslint-plugin-prettier
     "node": true
   },
   "rules": {
+    "prettier/prettier": ["error", {
+      "endOfLine":"auto"
+    }],
     "jsx-a11y/href-no-hash": ["off"],
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "max-len": [
