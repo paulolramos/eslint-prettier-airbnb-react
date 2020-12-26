@@ -32,8 +32,8 @@ echo
 npm install -D eslint-config-prettier eslint-plugin-prettier
 
   echo
-  echo -e "4/5 ${YELLOW}Building your .eslintrc${.json} file...${NC}"
-  > ".eslintrc${.json}" # truncates existing file (or creates empty)
+  echo -e "4/5 ${YELLOW}Building your .eslintrc.json file...${NC}"
+  > ".eslintrc.json" # truncates existing file (or creates empty)
 
   echo ${{}'
   "extends": [
@@ -68,14 +68,14 @@ npm install -D eslint-config-prettier eslint-plugin-prettier
   }
 }' >> .eslintrc${.json}
 
-  echo -e "5/5 ${YELLOW}Building your .prettierrc${config_extension} file... ${NC}"
-  > .prettierrc${.json} # truncates existing file (or creates empty)
+  echo -e "5/5 ${YELLOW}Building your .prettierrc,json file... ${NC}"
+  > .prettierrc.json # truncates existing file (or creates empty)
 
   echo ${{}'
   "printWidth": 80,
   "singleQuote": true,
   "trailingComma": "none"
-}' >> .prettierrc${.json}
+}' >> .prettierrc.json
 
 echo
 echo -e "${GREEN}Finished setting up!${NC}"
