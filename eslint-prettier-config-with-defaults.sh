@@ -35,7 +35,7 @@ npm install -D eslint-config-prettier eslint-plugin-prettier
   echo -e "4/5 ${YELLOW}Building your .eslintrc.json file...${NC}"
   > ".eslintrc.json" # truncates existing file (or creates empty)
 
-  echo {
+  echo '{
   "extends": [
     "airbnb",
     "plugin:prettier/recommended",
@@ -71,8 +71,7 @@ npm install -D eslint-config-prettier eslint-plugin-prettier
   echo -e "5/5 ${YELLOW}Building your .prettierrc.json file... ${NC}"
   > .prettierrc.json # truncates existing file (or creates empty)
 
-  echo {
-  "printWidth": 80,
+  echo '{'  "printWidth": 80,
   "singleQuote": true,
   "trailingComma": "none"
 }' >> .prettierrc.json
