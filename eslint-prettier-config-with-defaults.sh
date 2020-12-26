@@ -66,12 +66,13 @@ npm install -D eslint-config-prettier eslint-plugin-prettier
       }
     ]
   }
-}' >> .eslintrc${.json}
+}' >> .eslintrc.json
 
   echo -e "5/5 ${YELLOW}Building your .prettierrc.json file... ${NC}"
   > .prettierrc.json # truncates existing file (or creates empty)
 
-  echo '{'  "printWidth": 80,
+  echo '{ 
+  "printWidth": 80,
   "singleQuote": true,
   "trailingComma": "none"
 }' >> .prettierrc.json
