@@ -123,8 +123,7 @@ else
   echo ${config_opening}'
   "extends": [
     "airbnb",
-    "plugin:prettier/recommended",
-    "prettier/react"
+    "plugin:prettier/recommended"
   ],
   "env": {
     "browser": true,
