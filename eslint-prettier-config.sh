@@ -97,9 +97,9 @@ echo
 echo -e "${GREEN}Configuring your development environment... ${NC}"
 
 echo
-echo -e "1/5 ${LCYAN}ESLint & Prettier Installation... ${NC}"
+echo -e "1/5 ${LCYAN}Prettier Installation... ${NC}"
 echo
-$pkg_cmd -D eslint prettier
+$pkg_cmd -D prettier
 
 echo
 echo -e "2/5 ${YELLOW}Conforming to Airbnb's JavaScript Style Guide... ${NC}"

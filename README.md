@@ -24,8 +24,7 @@
 
 ### Main Packages
 
-1. [ESlint](https://eslint.org/)
-2. [Prettier](https://prettier.io/)
+1. [Prettier](https://prettier.io/)
 
 ### Airbnb Configuration
 
@@ -106,3 +105,7 @@ Once files are created, you may edit to your liking.
 ---
 
 This script was inspired by Jeffrey Zhen's [tutorial](https://blog.echobind.com/integrating-prettier-eslint-airbnb-style-guide-in-vscode-47f07b5d7d6a).
+
+P.S.: This is an adjustment for restore compability with create-react-app.
+
+It will be used the ESLint package included in create-react-app boilerplate.
