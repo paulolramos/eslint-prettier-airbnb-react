@@ -103,6 +103,22 @@ Once files are created, you may edit to your liking.
 }
 ```
 
+### .editorconfig
+
+- [more Info](https://editorconfig.org/#example-file)
+
+```
+  root = true
+
+  []
+  indent_style = space
+  indent_size = 2
+  end_of_line = lf
+  charset = utf-8
+  trim_trailing_whitespace = true
+  insert_final_newline = false
+```
+
 ---
 
 This script was inspired by Jeffrey Zhen's [tutorial](https://blog.echobind.com/integrating-prettier-eslint-airbnb-style-guide-in-vscode-47f07b5d7d6a).
